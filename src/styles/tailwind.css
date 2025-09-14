@@ -1,0 +1,203 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Core System Colors */
+    --color-background: #0F0F23; /* rich-dark-background */
+    --color-foreground: #FFFFFF; /* white */
+    --color-border: #16213E; /* elevated-surface */
+    --color-input: #16213E; /* elevated-surface */
+    --color-ring: #00D4FF; /* electric-cyan */
+    --color-card: #16213E; /* elevated-surface */
+    --color-card-foreground: #FFFFFF; /* white */
+    --color-popover: #1A1A2E; /* deep-navy */
+    --color-popover-foreground: #FFFFFF; /* white */
+    --color-muted: #1A1A2E; /* deep-navy */
+    --color-muted-foreground: #B0B3B8; /* muted-gray */
+
+    /* Brand Colors */
+    --color-primary: #00D4FF; /* electric-cyan */
+    --color-primary-foreground: #0F0F23; /* rich-dark-background */
+    --color-secondary: #1A1A2E; /* deep-navy */
+    --color-secondary-foreground: #FFFFFF; /* white */
+    --color-accent: #FFD700; /* strategic-gold */
+    --color-accent-foreground: #0F0F23; /* rich-dark-background */
+
+    /* Status Colors */
+    --color-success: #00FF88; /* vibrant-green */
+    --color-success-foreground: #0F0F23; /* rich-dark-background */
+    --color-warning: #FFB800; /* warm-amber */
+    --color-warning-foreground: #0F0F23; /* rich-dark-background */
+    --color-error: #FF4757; /* clear-red */
+    --color-error-foreground: #FFFFFF; /* white */
+    --color-destructive: #FF4757; /* clear-red */
+    --color-destructive-foreground: #FFFFFF; /* white */
+
+    /* Text Colors */
+    --color-text-primary: #FFFFFF; /* white */
+    --color-text-secondary: #B0B3B8; /* muted-gray */
+
+    /* Surface Colors */
+    --color-surface: #16213E; /* elevated-surface */
+    --color-surface-foreground: #FFFFFF; /* white */
+
+    /* Animation Variables */
+    --animation-duration-fast: 150ms;
+    --animation-duration-normal: 300ms;
+    --animation-duration-slow: 500ms;
+    --animation-easing: cubic-bezier(0.4, 0, 0.2, 1);
+
+    /* Glassmorphism Variables */
+    --glass-backdrop-blur: 12px;
+    --glass-border-opacity: 0.2;
+    --glass-bg-opacity: 0.1;
+
+    /* Shadow Variables */
+    --shadow-sm: 0 1px 2px 0 rgba(0, 212, 255, 0.05);
+    --shadow-md: 0 4px 6px -1px rgba(0, 212, 255, 0.1), 0 2px 4px -1px rgba(0, 212, 255, 0.06);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 212, 255, 0.1), 0 4px 6px -2px rgba(0, 212, 255, 0.05);
+    --shadow-xl: 0 20px 25px -5px rgba(0, 212, 255, 0.1), 0 10px 10px -5px rgba(0, 212, 255, 0.04);
+    --shadow-2xl: 0 25px 50px -12px rgba(0, 212, 255, 0.25);
+    --shadow-glow: 0 0 20px rgba(0, 212, 255, 0.3);
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-body;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  /* Typography Classes */
+  .font-heading {
+    font-family: 'Orbitron', sans-serif;
+  }
+
+  .font-body {
+    font-family: 'Inter', sans-serif;
+  }
+
+  .font-caption {
+    font-family: 'Space Grotesk', sans-serif;
+  }
+
+  .font-data {
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  /* Glassmorphism Utilities */
+  .glass {
+    backdrop-filter: blur(var(--glass-backdrop-blur));
+    background: rgba(255, 255, 255, var(--glass-bg-opacity));
+    border: 1px solid rgba(255, 255, 255, var(--glass-border-opacity));
+  }
+
+  .glass-dark {
+    backdrop-filter: blur(var(--glass-backdrop-blur));
+    background: rgba(22, 33, 62, var(--glass-bg-opacity));
+    border: 1px solid rgba(0, 212, 255, var(--glass-border-opacity));
+  }
+
+  /* Neon Glow Effects */
+  .neon-glow {
+    box-shadow: var(--shadow-glow);
+  }
+
+  .neon-border {
+    border: 1px solid var(--color-primary);
+    box-shadow: 0 0 10px rgba(0, 212, 255, 0.3);
+  }
+
+  /* Animation Utilities */
+  .animate-fade-in {
+    animation: fadeIn var(--animation-duration-normal) var(--animation-easing);
+  }
+
+  .animate-slide-up {
+    animation: slideUp var(--animation-duration-normal) var(--animation-easing);
+  }
+
+  .animate-scale-in {
+    animation: scaleIn var(--animation-duration-fast) var(--animation-easing);
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes slideUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes scaleIn {
+    from {
+      opacity: 0;
+      transform: scale(0.95);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  /* Scrollbar Styling */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: var(--color-background);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--color-surface);
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--color-primary);
+  }
+
+  /* Focus Styles */
+  .focus-ring {
+    @apply focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background;
+  }
+
+  /* Progress Ring Animation */
+  .progress-ring {
+    transform: rotate(-90deg);
+    transform-origin: 50% 50%;
+  }
+
+  .progress-ring-circle {
+    transition: stroke-dashoffset var(--animation-duration-slow) var(--animation-easing);
+  }
+
+  /* Stagger Animation Delays */
+  .stagger-1 { animation-delay: 50ms; }
+  .stagger-2 { animation-delay: 100ms; }
+  .stagger-3 { animation-delay: 150ms; }
+  .stagger-4 { animation-delay: 200ms; }
+  .stagger-5 { animation-delay: 250ms; }
+}
